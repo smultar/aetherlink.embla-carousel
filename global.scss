@@ -1,0 +1,69 @@
+// SCSS Variables
+$background: var(--background);
+$background-value: var(--background-value);
+$foreground: var(--foreground);
+$foreground-value: var(--foreground-value);
+
+$font: var(--font);
+$font-size: var(--font-size);
+$font-value: var(--font-value);
+$font-alt: var(--fontAlt);
+$font-alt-value: var(--fontAlt-value);
+
+$lines: var(--lines);
+$lines-value: var(--lines-value);
+$lines-alt: var(--linesAlt);
+$lines-alt-value: var(--linesAlt-value);
+
+$accent: var(--accent);
+$accent-value: var(--accent-value);
+
+$error: var(--error);
+$error-value: var(--error-value);
+
+$warn: var(--warn);
+$warn-value: var(--warn-value);
+
+$icon: var(--icon);
+$icon-value: var(--icon-value);
+
+$special: var(--special);
+$special-value: var(--special-value);
+
+$anim-s: var(--anim-s);
+$anim-m: var(--anim-m);
+$anim-l: var(--anim-l);
+
+@mixin backlight($x, $y, $spread, $size, $colorA, $colorB, $duration) {
+	&:after {
+		position: absolute;
+		content: '';
+		top: $y;
+		left: $x;
+		right: 0;
+		z-index: -1;
+		height: 100%;
+		width: 100%;
+		margin: 0 auto;
+		transform: scale($size);
+		-webkit-filter: blur($spread);
+		-moz-filter: blur($spread);
+		-ms-filter: blur($spread);
+		filter: blur($spread);
+		background: linear-gradient(270deg, $colorA, $colorB);
+		background-size: 200% 200%;
+		animation: backlight $duration ease infinite;
+
+		@keyframes backlight {
+			0% {
+				background-position: 0% 50%;
+			}
+			50% {
+				background-position: 100% 50%;
+			}
+			100% {
+				background-position: 0% 50%;
+			}
+		}
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Serverside: Nextjs",
+			"type": "node-terminal",
+			"request": "launch",
+			"command": "pnpm run dev"
+		},
+		{
+			"name": "Clientside: Edit",
+			"type": "msedge",
+			"request": "launch",
+			"url": "http://localhost:3000"
+		},
+		{
+			"name": "FullStack",
+			"type": "node-terminal",
+			"request": "launch",
+			"command": "pnpm run dev",
+			"serverReadyAction": {
+				"pattern": "- Local:.+(https?://.+)",
+				"uriFormat": "%s",
+				"action": "debugWithEdge"
+			}
+		},
+		{
+			"name": "FullStack (Turbo)",
+			"type": "node-terminal",
+			"request": "launch",
+			"command": "pnpm run dev --turbo",
+			"serverReadyAction": {
+				"pattern": "- Local:.+(https?://.+)",
+				"uriFormat": "%s",
+				"action": "debugWithEdge"
+			}
+		},
+		{
+			"name": "Edge",
+			"type": "node-terminal",
+			"request": "launch",
+			"command": "npx wrangler pages dev .vercel/output/static --compatibility-flag=nodejs_compat",
+			"serverReadyAction": {
+				"pattern": "[mf:inf] Ready on .+",
+				"uriFormat": "%s",
+				"action": "debugWithEdge"
+			}
+		}
+	]
+}

@@ -1,0 +1,235 @@
+@import '@/global.scss';
+
+button {
+	padding: 8px 16px;
+	border-radius: 8px;
+	min-width: max-content;
+	outline: 1px solid transparent;
+	border: none;
+	background-color: $font;
+	color: $background;
+	font-size: $font-size;
+
+	transition: all $anim-s ease;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 8px;
+
+	position: relative;
+
+	a {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 8px;
+		text-decoration: none;
+		color: inherit;
+
+		&::before {
+			content: '';
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	}
+
+	img {
+		filter: $icon;
+	}
+
+	&.faded {
+		opacity: 0.5;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&:hover {
+		background-color: rgba($color: $font-value, $alpha: 0.25);
+		color: $font;
+		cursor: pointer;
+	}
+
+	&.active {
+		background-color: rgba($color: $accent-value, $alpha: 1);
+		border: 1px solid $accent;
+		color: $font;
+
+		&:hover {
+			background-color: rgba($color: $accent-value, $alpha: 0.15);
+			color: $font;
+		}
+	}
+
+	&:focus-visible {
+		outline: 5px solid rgba($color: $accent-value, $alpha: 0.75);
+	}
+
+	&.disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+
+	&.slim {
+		padding: 6px 8px;
+	}
+
+	&.icon {
+		padding: 8px;
+	}
+
+	&.secondary {
+		background-color: $foreground;
+		color: $font;
+		border: 1px solid transparent;
+
+		&:hover {
+			background-color: rgba($color: $foreground-value, $alpha: 0.15);
+			color: $font;
+		}
+
+		&:active {
+			background-color: rgba($color: $font-value, $alpha: 0.5);
+			color: $font;
+		}
+	}
+
+	&.destructive {
+		background-color: rgba($color: $error-value, $alpha: 0.5);
+		color: $font;
+		border: 1px solid $error;
+
+		&:hover {
+			background-color: rgba($color: $error-value, $alpha: 0.15);
+			color: $error;
+		}
+
+		&:active {
+			background-color: rgba($color: $font-value, $alpha: 0.5);
+			color: $error;
+		}
+	}
+
+	&.outline {
+		background-color: transparent;
+		color: $font;
+		border: 1px solid $lines-alt;
+
+		&.active {
+			background-color: rgba($color: $accent-value, $alpha: 0.15);
+			border: 1px solid $accent;
+			color: $font;
+
+			&:hover {
+				background-color: rgba($color: $accent-value, $alpha: 0.15);
+				color: $font;
+			}
+		}
+
+		&:hover {
+			background-color: rgba($color: $lines-alt-value, $alpha: 0.5);
+			color: $font;
+		}
+
+		&:active {
+			background-color: rgba($color: $font-value, $alpha: 0.5);
+			color: $font;
+		}
+	}
+
+	&.ghost {
+		background-color: rgba($color: $accent-value, $alpha: 0.15);
+		color: $font;
+		border: 1px solid transparent;
+
+		&:hover {
+			background-color: rgba($color: $accent-value, $alpha: 0.75);
+			color: $font;
+		}
+
+		&:active {
+			background-color: rgba($color: $font-value, $alpha: 0.5);
+			color: $font;
+		}
+	}
+
+	&.transparent {
+		background-color: transparent;
+		color: $font;
+		border: 1px solid transparent;
+
+		&:hover {
+			background-color: rgba($color: $accent-value, $alpha: 0.15);
+			color: $font;
+		}
+
+		&:active {
+			background-color: rgba($color: $font-value, $alpha: 0.5);
+			color: $font;
+		}
+	}
+
+	&.link {
+		background-color: transparent;
+		color: $font;
+		border-radius: 0px;
+		border: 1px solid $font;
+		border-width: 0px 0px 1px 0px;
+
+		&.active {
+			border: 1px solid $accent;
+			border-width: 0px 0px 1px 0px;
+			color: $accent;
+
+			&:hover {
+				border: 1px solid $font;
+				color: $font;
+			}
+		}
+
+		&:hover {
+			background-color: transparent;
+			color: $font;
+		}
+
+		&:active {
+			background-color: rgba($color: $font-value, $alpha: 0.5);
+			color: $font;
+		}
+	}
+
+	&.fancy {
+		position: relative;
+
+		&::after {
+			position: absolute;
+			content: '';
+			top: 0px;
+			left: 0;
+			right: 0;
+			z-index: -1;
+			height: 100%;
+			width: 100%;
+			transform: scale(0.9) translateZ(0);
+			filter: blur(15px);
+			background: linear-gradient(to left, #ff5770, #e4428d, #c42da8, #9e16c3, #6501de, #9e16c3, #c42da8, #e4428d, #ff5770);
+			background-size: 200% 200%;
+			animation: animateGlow 1.25s linear infinite;
+		}
+	}
+}
+
+@keyframes animateGlow {
+	0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 200% 50%;
+	}
+}
