@@ -1,0 +1,23 @@
+@import '@/global.scss';
+
+.glow {
+	position: absolute;
+	z-index: -10;
+
+	border-radius: 9999px;
+	background-color: $special;
+
+	margin-left: auto;
+	margin-right: auto;
+
+	aspect-ratio: 1/1;
+
+	max-width: 96rem;
+	width: 85%;
+
+	filter: blur(100px);
+	opacity: 0.5;
+
+	transform: translateY(-50.66667%);
+	top: 0%;
+}
